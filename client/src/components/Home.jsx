@@ -7,7 +7,6 @@ const Home = () => {
   const [randomText, setRandomText] = useState("");
   const [randomParagraph, setRandomParagraph] = useState("");
 
-  
   const textOptions = [
     {
       heading: "The Fastest Delivery in Your City",
@@ -29,20 +28,16 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    
     const updateRandomContent = () => {
       const randomIndex = Math.floor(Math.random() * textOptions.length);
       setRandomText(textOptions[randomIndex].heading);
       setRandomParagraph(textOptions[randomIndex].paragraph);
     };
 
-   
     updateRandomContent();
 
-   
     const interval = setInterval(updateRandomContent, 5000);
 
-    
     return () => clearInterval(interval);
   }, [textOptions]);
 
@@ -54,7 +49,7 @@ const Home = () => {
   return (
     <motion.div
       className="w-full grid grid-cols-1 md:grid-cols-2 gap-4"
-      key={randomParagraph} 
+      key={randomParagraph}
       initial="initial"
       animate="animate"
       variants={variants}
@@ -102,8 +97,6 @@ const Home = () => {
         />
       </div>
     </motion.div>
-
-    
   );
 };
 
